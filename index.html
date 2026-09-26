@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            color: #333;
+        }
+
+        /* Welcome screen */
+        #welcome-screen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .open-btn {
+            padding: 16px 45px;
+            font-size: 22px;
+            font-weight: 600;
+            color: white;
+            background: linear-gradient(to right, #ff416c, #ff4b2b);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(255, 65, 108, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            outline: none;
+        }
+
+        .open-btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 15px 25px rgba(255, 65, 108, 0.6);
+        }
+
+        /* Main content container */
+        #content-screen {
+            display: none;
+            max-width: 600px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(5px);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        /* Animated image gallery */
+        .image-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .animated-img {
+            width: 100%;
+            max-height: 380px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.12);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards;
+        }
+
+        /* Image animation sequence delays */
+        .img1 { animation-delay: 0.5s; }
+        .img2 { animation-delay: 1.8s; }
+        .img3 { animation-delay: 3.1s; }
+
+        /* Love letter style */
+        .love-letter {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #4a4a4a;
+            margin-top: 20px;
+            padding-top: 18px;
+            border-top: 2px dashed #ff416c;
+            opacity: 0;
+            animation: fadeInUp 1s forwards;
+            animation-delay: 4.3s;
+        }
+
+        .love-letter h2 {
+            color: #ff416c;
+            margin-bottom: 12px;
+            font-size: 26px;
+        }
+
+        /* Keyframe animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Music -->
+    <audio id="bg-music" loop>
+        <source src="love.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Step 1: Open Button -->
+    <div id="welcome-screen">
+        <button class="open-btn" onclick="openLovePage()">Open ❤️</button>
+    </div>
+
+    <!-- Step 2: Photos and Love Message -->
+    <div id="content-screen">
+        
+        <!-- Animated Photos -->
+        <div class="image-container">
+            <img src="Photo1.jpg" alt="Our Special Moment 1" class="animated-img img1">
+            <img src="Photo2.jpg" alt="Our Special Moment 2" class="animated-img img2">
+            <img src="Photo3.jpg" alt="Our Special Moment 3" class="animated-img img3">
+        </div>
+
+        <!-- Love Message -->
+        <div class="love-letter">
+            <h2>To My Beloved ❤️</h2>
+            <p>
+                You are the most precious gift in my life, and having you by my side makes every single day brighter and full of joy. Your smile holds all the happiness I ever need. Thank you for being my constant warmth and love. I love you more than words can ever express! 💕
+            </p>
+        </div>
+
+    </div>
+
+    <script>
+        function openLovePage() {
+            // Play background audio
+            var music = document.getElementById("bg-music");
+            music.play();
+
+            // Hide initial screen and reveal content
+            document.getElementById("welcome-screen").style.display = "none";
+            document.getElementById("content-screen").style.display = "block";
+        }
+    </script>
+
+</body>
+</html>
